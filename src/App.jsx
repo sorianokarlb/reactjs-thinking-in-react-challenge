@@ -21,11 +21,20 @@ const MainField = ({products}) => {
 }
 
 const SearchField = ({filterText,setFilterText,setFilterCheck,filterCheck}) => {
+    const handleSearch = (e) => {
+        setFilterText(e.target.value)
+    }
+
+    const handleCheck = (e) => {
+        setFilterCheck(e.target.value)
+    }
+
+
     return  (
         <>
             <form>
-                <input type="text" placeholder="Search..." value={filterText} onChange={(e)=>setFilterText(e.target.value)}/>
-                <input type="checkbox" name="check" value={filterCheck} onChange={(e)=>setFilterCheck(e.target.value)}/>
+                <input type="text" placeholder="Search..." value={filterText} onChange={handleSearch}/>
+                <input type="checkbox" name="check" value={filterCheck} onChange={handleCheck}/>
                 <label htmlFor="check">{" "}Filter Table</label>
             </form>
         </>
